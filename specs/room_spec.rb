@@ -6,4 +6,10 @@ require_relative("../room")
 
 
 class RoomTest < MiniTest::Test
+
+    def setup
+      @room1 = Room.new("The blue room")
+
+    end
+
 end
