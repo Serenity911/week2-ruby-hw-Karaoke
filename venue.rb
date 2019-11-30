@@ -24,4 +24,6 @@ attr_reader :name, :till
     @rooms.find{|room| room.get_status == "free"}
   end
 
+#
+#
 end
