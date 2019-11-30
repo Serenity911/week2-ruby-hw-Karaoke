@@ -7,3 +7,5 @@ class Customer
   end
 
 end
+
+#ADD MONEY

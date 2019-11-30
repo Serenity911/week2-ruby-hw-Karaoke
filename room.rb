@@ -3,12 +3,11 @@ class Room
   attr_reader :name, :max_capacity, :cost
   #playlist_of_songs shall be needed in reader or not?
 
-  def initialize(name, max_capacity, cost, status, playlist_of_songs = [])
+  def initialize(name, max_capacity, cost, playlist_of_songs = [])
     @name = name
     @max_capacity = max_capacity
     @playlist_of_songs = playlist_of_songs
     @customers_booked = []
-    @status = status
     @cost = cost
   end
 
@@ -17,7 +16,7 @@ class Room
   end
 
   def add_customer_to_room(customer)
-    return if check_max_capacity == "full"
+    return if get_status == "full"
     return if @customers_booked.include?(customer)
     @customers_booked.push(customer)
   end
@@ -39,12 +38,9 @@ class Room
     @playlist_of_songs.delete(song)
   end
 
-  def check_max_capacity()
-    if customers_booked_counter < @max_capacity
-      @status = "free"
-    else
-      @status = "full"
-    end
+  def get_status()
+    customers_booked_counter < @max_capacity ? "free" : "full"
   end
+
 
 end

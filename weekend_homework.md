@@ -13,7 +13,9 @@ v - Add songs to rooms
 ### Extensions
 
 - What happens if there are more guests trying to be checked in than there is free space in the room?
+v // extensions: maybe waiting list?
 - Karaoke venues usually have an entry fee - So the guests could have money so they can pay it.
+
 
 
 ### Advanced extensions
