@@ -11,7 +11,7 @@ require_relative("../customer")
 class RoomTest < MiniTest::Test
 
     def setup
-      @room1 = Room.new("The blue room", 2, "free")
+      @room1 = Room.new("The blue room", 2, 10, "free")
       @customer1 = Customer.new("Bob")
       @customer2 = Customer.new("Petra")
       @customer3 = Customer.new("Alex")
@@ -84,5 +84,7 @@ class RoomTest < MiniTest::Test
 
     #ADD TEST CANNOT BOOK A ROOM THAT DOES NOT EXIST
 
-
+    def test_room_has_a_cost()
+      assert_equal(10, @room1.cost)
+    end
 end
