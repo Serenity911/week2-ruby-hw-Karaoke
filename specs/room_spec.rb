@@ -11,8 +11,12 @@ require_relative("../customer")
 class RoomTest < MiniTest::Test
 
     def setup
-      @room1 = Room.new("The blue room", 10)
+      @room1 = Room.new("The blue room", 2, "free")
       @customer1 = Customer.new("Bob")
+      @customer2 = Customer.new("Petra")
+      @customer3 = Customer.new("Alex")
+      @customer4 = Customer.new("Alex")
+
 
     end
 
@@ -60,19 +64,25 @@ class RoomTest < MiniTest::Test
     end
 
     def test_room_max_capacity()
-      assert_equal(10, @room1.max_capacity)
+      assert_equal(2, @room1.max_capacity)
     end
 
-    # def test_can_()
-    #
-    # end
-    #
+    def test_room_is_free_if_just_one_customer()
+      @room1.add_customer_to_room(@customer1)
+      assert_equal("free", @room1.check_max_capacity)
+    end
+
     # def test_can_add_customer_to_room_if_not_empty()
     #
     # end
-    #
-    # def test_cannot_add_customer_to_full_room()
-    #
-    # end
+
+    def test_cannot_add_customer_to_full_room()
+      @room1.add_customer_to_room(@customer1)
+      @room1.add_customer_to_room(@customer2)
+      assert_equal("full", @room1.check_max_capacity)
+    end
+
+    #ADD TEST CANNOT BOOK A ROOM THAT DOES NOT EXIST
+
 
 end
